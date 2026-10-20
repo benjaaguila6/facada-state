@@ -7,7 +7,7 @@
     <ProjectGuid>{37496585-42B1-4840-A164-38362315D178}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>facade_ej2</RootNamespace>
-    <AssemblyName>facade_ej2</AssemblyName>
+    <AssemblyName>facade-ej2</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckoutFacade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicioEnvio.cs" />
+    <Compile Include="ServicioNotificaciones.cs" />
+    <Compile Include="ServicioPago.cs" />
+    <Compile Include="ServicioStock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

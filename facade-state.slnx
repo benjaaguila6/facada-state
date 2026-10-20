@@ -1,3 +1,4 @@
 <Solution>
-  <Project Path="facade-ej1/facade-ej1.csproj" />
+  <Project Path="facade-ej1/facade-ej1.csproj" Id="33b0e575-ca70-4b92-826d-48d314b9b798" />
+  <Project Path="facade-ej2/facade-ej2.csproj" Id="37496585-42b1-4840-a164-38362315d178" />
 </Solution>

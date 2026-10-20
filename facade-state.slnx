@@ -1,4 +1,6 @@
 <Solution>
   <Project Path="facade-ej1/facade-ej1.csproj" Id="33b0e575-ca70-4b92-826d-48d314b9b798" />
   <Project Path="facade-ej2/facade-ej2.csproj" Id="37496585-42b1-4840-a164-38362315d178" />
+  <Project Path="state-1/state-ej1.csproj" Id="4d6bb893-fdce-4924-9281-bd3f047dc7cc" />
+  <Project Path="state-ej2/state-ej2.csproj" Id="3954486e-d141-4039-9df5-e0bb997c1c1b" />
 </Solution>

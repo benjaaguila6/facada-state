@@ -7,9 +7,13 @@ using System.Xml;
 
 namespace state_1
 {
+    //Contecxto, clase principal
     public class AudioPlayer
     {
+        // Estado actual en el que se encuentra el reproductor
         private IEstadoReproductor _estado;
+
+        // Datos internos del reproductor
         private readonly string[] _canciones = { "Canción A", "Canción B", "Canción C" };
         private int _indice = 0;
 
@@ -23,14 +27,15 @@ namespace state_1
             _estado = new ReadyState(this); // estado inicial
         }
 
-        // Setter del estado: lo usan los estados concretos para iniciar transiciones.
+        // Permite cambiar de estado dinámicamente durante la ejecución
         public void ChangeState(IEstadoReproductor nuevoEstado)
         {
             _estado = nuevoEstado;
             Console.WriteLine($"   [transición -> {nuevoEstado.GetType().Name}]");
         }
 
-        // Los botones solo delegan en el estado activo (sin if/switch).
+        // --- DELEGACIÓN DE ACCIONES (El corazón del Patrón State) ---
+        // Los botones de la interfaz solo llaman a esto, sin importar el estado actual.
         public void ClickBloqueo() => _estado.ClickBloqueo();
         public void ClickPlay() => _estado.ClickPlay();
         public void ClickSiguiente(bool dobleClic = false) => _estado.ClickSiguiente(dobleClic);

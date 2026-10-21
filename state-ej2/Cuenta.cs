@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace state_ej2
 {
+    //Contexto
     public class Cuenta
     {
         private IEstadoCuenta _estado;
@@ -16,10 +17,9 @@ namespace state_ej2
         public Cuenta(string passwordCorrecta)
         {
             _passwordCorrecta = passwordCorrecta;
-            _estado = new Activa(); // estado inicial
+            _estado = new Activa(); // Estado inicial
         }
 
-        // Setter para recibir un nuevo objeto de estado (transición).
         public void SetState(IEstadoCuenta nuevoEstado)
         {
             _estado = nuevoEstado;
@@ -28,10 +28,10 @@ namespace state_ej2
 
         public bool EsPasswordCorrecta(string password) => password == _passwordCorrecta;
 
-        // El contexto no tiene condicionales: delega en el estado actual.
-        public int IngresarPassword(string password)
+        // Delega la validación directamente al estado actual
+        public bool IngresarPassword(string password)
         {
-            return _estado.ControlarEstado(this, password);
+            return _estado.IngresarPassword(this, password);
         }
     }
 }

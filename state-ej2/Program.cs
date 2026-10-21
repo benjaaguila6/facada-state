@@ -12,7 +12,6 @@ namespace state_ej2
         {
             Console.WriteLine("=== VALIDACIÓN DE CUENTA (PATRÓN STATE) ===");
 
-            // Permitimos configurar la contraseña inicial por teclado (o usar una por defecto)
             Console.Write("Ingrese la contraseña correcta para configurar la cuenta: ");
             string passwordSecreta = Console.ReadLine()?.Trim() ?? "1234";
 
@@ -36,22 +35,12 @@ namespace state_ej2
                         Console.Write("Ingrese la contraseña: ");
                         string passIngresada = Console.ReadLine()?.Trim() ?? "";
 
-                        int resultado = cuenta.IngresarPassword(passIngresada);
+                        // Evaluamos el resultado booleano directo
+                        bool exito = cuenta.IngresarPassword(passIngresada);
 
-                        // Interpretamos el resultado usando la clase estática Resultado
-                        if (resultado == Resultado.Ok)
+                        if (exito)
                         {
-                            Console.WriteLine("¡Acceso concedido! Contraseña correcta.");
-                            opcion = "2"; // Salimos del programa al acertar
-                        }
-                        else if (resultado == Resultado.Incorrecta)
-                        {
-                            Console.WriteLine($"[Error] Contraseña incorrecta. Intentos fallidos: {cuenta.IntentosFallidos}");
-                        }
-                        else if (resultado == Resultado.Bloqueada)
-                        {
-                            Console.WriteLine("[Bloqueado] La cuenta está bloqueada por exceder los intentos fallidos.");
-                            opcion = "2"; // Salimos al bloquearse
+                            opcion = "2"; // Salimos si el acceso fue exitoso
                         }
                         break;
 
@@ -68,6 +57,6 @@ namespace state_ej2
             Console.WriteLine("\nFin del programa. Presione cualquier tecla para salir...");
             Console.ReadKey();
         }
-    
+
     }
 }

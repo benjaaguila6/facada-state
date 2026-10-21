@@ -10,23 +10,28 @@ namespace state_ej2
     {
         private const int MaxIntentos = 3;
 
-        public int ControlarEstado(Cuenta cuenta, string password)
+        public bool IngresarPassword(Cuenta cuenta, string password)
         {
+            // Si la contraseña es correcta, reseteamos intentos y damos acceso
             if (cuenta.EsPasswordCorrecta(password))
             {
                 cuenta.IntentosFallidos = 0;
-                return Resultado.Ok;
+                Console.WriteLine("   ¡Acceso concedido! Contraseña correcta.");
+                return true;
             }
 
+            // Si es incorrecta, sumamos intentos
             cuenta.IntentosFallidos++;
+            Console.WriteLine($"   [Error] Contraseña incorrecta. Intentos fallidos: {cuenta.IntentosFallidos}/{MaxIntentos}");
 
+            // Si llega al límite, cambiamos al estado Bloqueada
             if (cuenta.IntentosFallidos >= MaxIntentos)
             {
                 cuenta.SetState(new Bloqueada());
-                return Resultado.Bloqueada;
+                Console.WriteLine("   [Alerta] La cuenta ha sido BLOQUEADA por superar los intentos.");
             }
 
-            return Resultado.Incorrecta;
+            return false;
         }
     }
 }

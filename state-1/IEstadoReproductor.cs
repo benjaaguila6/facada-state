@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace state_1
 {
+    //Define todas las acciones posibles que se pueden realizar en el reproductor.
     public interface IEstadoReproductor
     {
         void ClickBloqueo();

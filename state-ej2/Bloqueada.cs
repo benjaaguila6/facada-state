@@ -8,9 +8,10 @@ namespace state_ej2
 {
     public class Bloqueada : IEstadoCuenta
     {
-        public int ControlarEstado(Cuenta cuenta, string password)
+        public bool IngresarPassword(Cuenta cuenta, string password)
         {
-            return Resultado.Bloqueada;
+            Console.WriteLine("   [Bloqueado] La cuenta se encuentra bloqueada. No se puede ingresar.");
+            return false;
         }
     }
 }

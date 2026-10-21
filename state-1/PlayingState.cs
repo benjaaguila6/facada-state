@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace state_1
 {
+    // Define el comportamiento cuando la música está sonando activamente.
     public class PlayingState : EstadoReproductor
     {
         public PlayingState(AudioPlayer player) : base(player) { }
 
+        // Si está sonando y bloquean, pasa al estado LockedState
         public override void ClickBloqueo() => Player.ChangeState(new LockedState(Player));
 
+        // Si está sonando y presionan Play, detiene la música y vuelve a ReadyState
         public override void ClickPlay()
         {
             Player.DetenerReproduccion();
